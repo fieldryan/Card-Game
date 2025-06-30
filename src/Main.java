@@ -21,6 +21,7 @@ public class Main {
             for (var face : FACES) {
                 add(new Card(face + " of " + suit, 1));
             }
+
         }
     }});
 
