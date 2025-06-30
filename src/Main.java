@@ -101,12 +101,22 @@ public class Main {
 
     public static void main(String[] args) {
         setUp();
-        visualiseBoard();
+        runConsoleGame();
     }
 
     public static void runConsoleGame() {
         while (gameBoard.stream().anyMatch(Objects::nonNull) && !gameDeck.isEmpty()) {
 
+
+            System.out.println("Choose the index (1-9)");
+            int chosenGameIndex = 0; // todo input
+
+            System.out.println("Higher or lower?: "); // todo scanner take input
+            boolean higher = true;
+
+            int correctResult = correctCall(higher, chosenGameIndex, draw());
+
+            System.out.println("result is " + correctResult);
         }
     }
 
