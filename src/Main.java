@@ -18,7 +18,6 @@ public class Main {
             for (int i = 2; i <= 10; i++) {
                 add(new Card(i + " of " + suit, i));
             }
-
             for (var face : FACES) {
                 add(new Card(face + " of " + suit, 1));
             }
