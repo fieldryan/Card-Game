@@ -91,7 +91,9 @@ public class Main {
     }
 
     public static void runConsoleGame() {
-        while ()
+        while (gameBoard.stream().anyMatch(Objects::nonNull) && !gameDeck.isEmpty()) {
+
+        }
     }
 
 
