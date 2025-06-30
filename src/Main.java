@@ -12,7 +12,7 @@ public class Main {
     private static final String[] FACES = {"Ace", "Jack", "Queen", "King"};
 
 
-    private static final Set<Card> fullDeck = new HashSet<>() {{
+    private static final Set<Card> fullDeck = Collections.unmodifiableSet(new HashSet<>() {{
         for (int j = 0; j < 4; j++) {
             String suit = SUITS[j];
             for (int i = 2; i <= 10; i++) {
@@ -23,15 +23,13 @@ public class Main {
                 add(new Card(face + " of " + suit, 1));
             }
         }
-    }};
+    }});
+
     private static List<Card> gameDeck = new ArrayList<>();
     public static List<Card> gameBoard = new ArrayList<>();
 
 
-    public static Card draw(){return gameDeck.remove(0);}
-    public static boolean correctCall(boolean high){
-        return false;
-    }
+
 
 
     /**
@@ -64,6 +62,18 @@ public class Main {
     }
 
 
+    public static Card draw(){return gameDeck.remove(0);}
+    public static int correctCall(boolean high, int chosenIndex, Card drawn){
+        int call = 0;
+        if(high) {
+            call = largerCall(gameBoard.get(chosenIndex), drawn);
+        }
+        else {
+            call = lowerCall(gameBoard.get(chosenIndex), drawn);
+        }
+        return call;
+    }
+
     /*
     return 1 if faceUp is larger than drawn
     return 0 if same value, draw again
@@ -92,6 +102,12 @@ public class Main {
     public static void main(String[] args) {
         setUp();
         visualiseBoard();
+    }
+
+    public static void runConsoleGame() {
+        while (gameBoard.stream().anyMatch(Objects::nonNull) && !gameDeck.isEmpty()) {
+
+        }
     }
 
 
