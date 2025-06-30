@@ -28,6 +28,12 @@ public class Main {
     public static List<Card> gameBoard = new ArrayList<>();
 
 
+    public static Card draw(){return gameDeck.remove(0);}
+    public static boolean correctCall(boolean high){
+        return false;
+    }
+
+
     /**
      * Initiliazes to call for setup
      */
@@ -55,7 +61,6 @@ public class Main {
             res.append("\n");
         }
         System.out.println(res);
-
     }
 
 
