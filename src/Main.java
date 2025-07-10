@@ -61,7 +61,6 @@ public class Main {
         System.out.println(res);
     }
 
-
     public static Card draw(){return gameDeck.remove(0);}
     public static int correctCall(boolean high, int chosenIndex, Card drawn){
         int call = 0;
